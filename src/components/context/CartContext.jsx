@@ -16,7 +16,7 @@ const CartContextProvider = ({children}) => {
     }
 
     const removeItem = (itemId) => {
-        const items = cart.filter(item => item.index !== itemId);
+        const items = cart.filter(item => item.index !== itemId); //Filtro todos los productos excepto por el Id indicado
         setCart([...items]);
     }
 
@@ -25,7 +25,7 @@ const CartContextProvider = ({children}) => {
     }
 
     const isInCart = (itemId) => {
-        return cart.some(item => item.index === itemId);
+        return cart.some(item => item.index === itemId); //Valida si existe un Producto con ese Id
     }
 
     const cartTotal = () => {

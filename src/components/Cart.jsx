@@ -11,7 +11,7 @@ const Cart = () => {
             <div className="container">
                 <div className="row">
                     <div className="col-md-12">
-                        <div className="alert alert-warning text-center" role="alert">No se encontraron Productos en el Carrito!</div>
+                        <div className="alert alert-primary text-center" role="alert">No se encontraron Productos en el Carrito!</div>
                     </div>
                 </div>
             </div>
@@ -25,7 +25,7 @@ const Cart = () => {
                 <div className="col-md-12">
                     <table className="table">
                         <tr>
-                            <td className="text-end" colSpan={5}><Link className="btn btn-warning bg-warning" onClick={() => {clear()}}>Vaciar Carrito</Link></td>
+                            <td className="text-end" colSpan={5}><Link className="btn btn-primary bg-primary" onClick={() => {clear()}}>Vaciar Carrito</Link></td>
                         </tr>
                         {
                             cart.map(item => ( 
@@ -34,7 +34,7 @@ const Cart = () => {
                                     <td className="text-start align-middle" width="30%">{item.title}</td>
                                     <td className="text-center align-middle" width="20%">{item.quantity} x ${item.price}</td>
                                     <td className="text-center align-middle" width="20%">${item.quantity * item.price}</td>
-                                    <td className="text-end align-middle" width="20%"><button type="button" className="btn btn-warning bg-warning" onClick={() => {removeItem(item.index)}} title={"Eliminar Producto"}><img src={trash} alt={"Eliminar Producto"} width={32} /></button></td>
+                                    <td className="text-end align-middle" width="20%"><button type="button" className="btn btn-primary bg-primary" onClick={() => {removeItem(item.index)}} title={"Eliminar Producto"}><img src={trash} alt={"Eliminar Producto"} width={32} /></button></td>
                                 </tr>
                             ))
                         }
@@ -42,7 +42,7 @@ const Cart = () => {
                             <td colSpan={2}>&nbsp;</td>
                             <td className="text-center">Total a Pagar</td>
                             <td className="text-center"><b>${cartSum()}</b></td>
-                            <td className="text-end"><Link to={"/checkout"} className="btn btn-warning bg-warning">Finalizar Compra</Link></td>
+                            <td className="text-end"><Link to={"/checkout"} className="btn btn-primary bg-primary">Finalizar Compra</Link></td>
                         </tr>
                     </table>
                 </div>
