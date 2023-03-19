@@ -81,15 +81,15 @@ const ItemCount = ({stock, onAdd}) => {
             <div className="row my-1">
                 <div className="col">
                     <div className="btn-group">
-                        <button className="btn btn-warning" onClick={decrementarStock}>-</button>
-                        <button className="btn btn-warning">{items}</button>
-                        <button className="btn btn-warning" onClick={incrementarStock}>+</button>
+                        <button className="btn btn-primary" onClick={decrementarStock}>-</button>
+                        <button className="btn btn-primary">{items}</button>
+                        <button className="btn btn-primary" onClick={incrementarStock}>+</button>
                     </div>
                 </div>
             </div>
             <div className="row my-1">
                 <div className="col">
-                    {itemAdded ? <Link to={"/cart"} className="btn btn-warning">Terminar Mi Compra</Link> : <button className="btn btn-warning" onClick={addToCart}>Agregar Al Carrito</button>}
+                    {itemAdded ? <Link to={"/cart"} className="btn btn-primary">Terminar Mi Compra</Link> : <button className="btn btn-primary" onClick={addToCart}>Agregar Al Carrito</button>}
                 </div>
             </div>
         </div>

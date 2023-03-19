@@ -4,7 +4,7 @@ const Loading = () => {
             <div className="row">
                 <div className="col-md-12 text-center">
                     <h1>Cargando...</h1>
-                    <div class="spinner-grow text-warning" role="status">
+                    <div class="spinner-grow text-primary" role="status">
                         <span class="visually-hidden">Loading...</span>
                     </div>
                 </div>

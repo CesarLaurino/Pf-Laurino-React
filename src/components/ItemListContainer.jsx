@@ -1,50 +1,32 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import ItemList from "./ItemList";
-import {addDoc, collection, getFirestore} from "firebase/firestore";
-import arrayProductos from "./json/productos.json";
+import { collection, getDocs, getFirestore, query, where } from "firebase/firestore";
+import Loading from "./Loading";
+// import arrayProductos from "./json/productos.json";
 
 const ItemListContainer = () => {
     const [items,setItems] = useState([]);
+    const [loading, setLoading] = useState(true);
     const {id} = useParams();
 
-    // useEffect(() => {
-    //     const promesa = new Promise((resolve, reject) => {
-    //         setTimeout(() => {
-    //             resolve(id ? arrayProductos.filter(item => item.category === (id)) : arrayProductos);
-    //         }, 2000);
-    //     });
-
-    //     promesa.then((data) => {
-    //         setItems(data);
-    //     })
-    // }, [id]);
-
     useEffect(() => {
-        const db=getFirestore();
+        const db = getFirestore();
         const itemsCollection = collection(db, "items");
-
-        arrayProductos.forEach(item => {
-            addDoc(itemsCollection, item);
-        });
-    }, []);
-
-    // useEffect(() => {
-    //     const db = getFirestore();
-    //     const itemsCollection = collection(db, "items");
-    //     const filter = id ? query(itemsCollection, where("categoria", "==", id)) : itemsCollection;
-    //     getDocs(filter).then(elements => {
-    //         setItems(elements.docs.map(element =>({id:element.id, ...element.data()})));
-    //     })
-    // }, [id]);
+        const filter = id ? query(itemsCollection, where("category", "==", id)) : itemsCollection;
+        getDocs(filter).then(elements => {
+            setItems(elements.docs.map(element =>({id:element.id, ...element.data()})));
+            setLoading(false);
+        })
+    }, [id]);
 
 
     // console.log("se agregaron los productos!");
 
     return (
-            <div className="row container-card">
-                <ItemList items = {items}  />
-            </div>
+        <div className="container">
+            {loading ? <Loading /> : <ItemList items={items} />}
+        </div>
     )
 }
 
