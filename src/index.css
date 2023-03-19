@@ -40,15 +40,16 @@ ul {
 }
 
 .navbarra{
+    width: 100%;
     background-color: rgb(25, 37, 55);
 }
 
-.navbar-light .navbar-nav .nav-link {
-    color: rgb(173, 156, 126);
+.navbar-light .navbar-nav .nav-link:visited {
+    color: rgb(255, 183, 0);
 }
 
-.navbar-light .navbar-nav .nav-link:hover {
-    color: darkgoldenrod;
+.nav-item{
+    color: gold;
 }
 
 .navbar-toggler{
@@ -130,4 +131,13 @@ ul {
     border-color: white;
     background-color: goldenrod;
     width: 150px;
+}
+
+.productos{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: space-around;
+    align-items: center;
 }
