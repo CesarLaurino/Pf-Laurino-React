@@ -8,13 +8,13 @@ const Checkout = () => {
     const [email, setEmail] = useState("");
     const [telefono, setTelefono] = useState("");
     const [orderId, setOrderId] = useState("");
-    const {cart, clear, cartSum} = useContext(CartContext);
+    const {cart, clear, cartTotal, cartSum} = useContext(CartContext);
 
     const generarOrden = () => {
         const buyer = {name:nombre, email:email, phone:telefono};
         const fecha = new Date();
         const date = `${fecha.getFullYear()}-${fecha.getMonth() + 1}-${fecha.getDate()} ${fecha.getHours()}:${fecha.getMinutes()}:${fecha.getSeconds()}`;
-        const order = {buyer:buyer, items:{cart}, date:date, total:cartSum()};
+        const order = {buyer:buyer, items:{cart}, date:date, total:cartTotal()};
 
         if (nombre.length === 0) {
             return false;
@@ -64,15 +64,15 @@ const Checkout = () => {
                                 <tr key={item.index}>
                                     <td className="text-start" width="10%"><img src={item.image} alt={item.title} width={120} /></td>
                                     <td className="text-start align-middle" width="40%">{item.title}</td>
-                                    <td className="text-center align-middle" width="20%">{item.quantity} x ${item.price}</td>
-                                    <td className="text-center align-middle" width="20%">${item.quantity * item.price}</td>
+                                    <td className="text-center align-middle" width="20%">{item.quantity} x USD{item.price}</td>
+                                    <td className="text-center align-middle" width="20%">USD{item.quantity * item.price}</td>
                                 </tr>
                             ))
                         }
                         <tr>
                             <td colSpan={2}>&nbsp;</td>
                             <td className="text-center">Total a Pagar</td>
-                            <td className="text-center"><b>${cartSum()}</b></td>
+                            <td className="text-center"><b>USD{cartSum()}</b></td>
                         </tr>
                     </table>
                 </div>

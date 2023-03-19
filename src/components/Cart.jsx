@@ -25,23 +25,23 @@ const Cart = () => {
                 <div className="col-md-12">
                     <table className="table">
                         <tr>
-                            <td className="text-end" colSpan={5}><Link className="btn btn-primary bg-primary" onClick={() => {clear()}}>Vaciar Carrito</Link></td>
+                            <td className="text-end" colSpan={5}><button className="btn btn-primary bg-primary" onClick={() => {clear()}}>Vaciar Carrito</button></td>
                         </tr>
                         {
                             cart.map(item => ( 
                                 <tr key={item.index}>
                                     <td className="text-start" width="10%"><img src={item.image} alt={item.title} width={120} /></td>
                                     <td className="text-start align-middle" width="30%">{item.title}</td>
-                                    <td className="text-center align-middle" width="20%">{item.quantity} x ${item.price}</td>
-                                    <td className="text-center align-middle" width="20%">${item.quantity * item.price}</td>
-                                    <td className="text-end align-middle" width="20%"><button type="button" className="btn btn-primary bg-primary" onClick={() => {removeItem(item.index)}} title={"Eliminar Producto"}><img src={trash} alt={"Eliminar Producto"} width={32} /></button></td>
+                                    <td className="text-center align-middle" width="20%">{item.quantity} x USD{item.price}</td>
+                                    <td className="text-center align-middle" width="20%">USD{item.quantity * item.price}</td>
+                                    <td className="text-end align-middle" width="20%"><Link type="button" className="btn btn-primary bg-primary" onClick={() => {removeItem(item.index)}} title={"Eliminar Producto"}><img src={trash} alt={"Eliminar Producto"} width={32} /></Link></td>
                                 </tr>
                             ))
                         }
                         <tr>
                             <td colSpan={2}>&nbsp;</td>
                             <td className="text-center">Total a Pagar</td>
-                            <td className="text-center"><b>${cartSum()}</b></td>
+                            <td className="text-center"><b>USD{cartSum()}</b></td>
                             <td className="text-end"><Link to={"/checkout"} className="btn btn-primary bg-primary">Finalizar Compra</Link></td>
                         </tr>
                     </table>

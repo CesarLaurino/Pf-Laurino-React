@@ -8,7 +8,7 @@ const ThankYou = () => {
             <div className="row">
                 <div className="col-md-12 text-center">
                     {orderId ? <div className="alert alert-warning text-center" role="alert"><h3>Gracias por Comprar con Nosotros!!!</h3><p>Se generó una Orden de Compra con el ID: <b>{orderId}</b></p></div> : ""}
-                    <Link to={"/"} className="btn btn-warning">Volver al Menú Principal</Link>
+                    <Link to={"/"} className="btn btn-primary">Volver al Menú Principal</Link>
                 </div>
             </div>
         </div>

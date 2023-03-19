@@ -6,7 +6,7 @@ const Item = ({item}) => {
             <div className="card">
                 <img src={item.image} className="card-img" alt={item.title}/>
                 <div className="card-body">
-                    <h2 className="card-title">{item.title}</h2>
+                    <h2 className="card-title text-center">{item.title}</h2>
                 </div>
             </div>
         </Link>
